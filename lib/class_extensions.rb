@@ -9,7 +9,7 @@ class Array
     arr = []
     (0..self.length).each do |idx|
       second_pos = idx + 1
-      (second_pos..self.length-1).each do |second_idx|
+      (second_pos..self.length - 1).each do |second_idx|
         if self[idx] + self[second_idx] == 0
           arr << [idx, second_idx]
         end
@@ -33,8 +33,8 @@ class Array
     while self.first.count != 0
       new_row = []
       self.each do |row|
-         new_row << row[0]
-         row.shift
+        new_row << row[0]
+        row.shift
       end
       big_arr << new_row
     end
