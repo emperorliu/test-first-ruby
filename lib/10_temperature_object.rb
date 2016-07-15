@@ -11,19 +11,11 @@ class Temperature
   end
 
   def in_celsius
-    if temp[:c]
-      temp[:c]
-    else
-      (temp[:f] - 32) * (5.0 / 9.0)
-    end
+    temp[:c] ? temp[:c] : (temp[:f] - 32) * (5.0 / 9.0)
   end
 
   def in_fahrenheit
-    if temp[:f]
-      temp[:f]
-    else
-      (temp[:c] * 1.8) + 32
-    end
+    temp[:f] ? temp[:f] : (temp[:c] * 1.8) + 32
   end
 
   def self.from_celsius(temp)

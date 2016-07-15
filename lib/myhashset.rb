@@ -14,11 +14,7 @@ class MyHashSet
   end
 
   def delete(el)
-    if store.delete(el)
-      true
-    else
-      false
-    end
+    store.delete(el) ? true : false
   end
 
   def to_a
