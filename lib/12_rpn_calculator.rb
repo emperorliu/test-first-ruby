@@ -11,7 +11,7 @@ class RPNCalculator
 
   def plus
     check_if_empty
-    added = arr.pop(2).inject(0, :+)
+    added = arr.pop(2).reduce(:+)
     arr << added
   end
 
@@ -48,16 +48,12 @@ class RPNCalculator
   def evaluate(str)
     tokenized = tokens(str)
     tokenized.each do |c|
-      if c.is_a?(Integer)
-        push(c)
-      elsif c == :+
-        plus
-      elsif c == :-
-        minus
-      elsif c == :*
-        times
-      elsif c == :/
-        divide
+      case c
+      when Integer; push(c)
+      when :+; plus
+      when :-; minus
+      when :*; times
+      else; divide
       end
     end
 
